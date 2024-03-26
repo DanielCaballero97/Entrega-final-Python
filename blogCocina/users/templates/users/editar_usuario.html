@@ -1,21 +1,25 @@
-{% extends 'AppDeDani/base.html' %}
+{% extends 'AppBlogCocina/base.html' %}
 
 {% load static %}
 
 {% block title %} Editar {% endblock title %}
 
+{% block headerFrase %}
+    <h1 class="fw-bolder">Aca podes Editar tu Perfil</h1>
+{% endblock headerFrase %}
+
 {% block main %}
-    <form action="" method="POST">
+    <form action="" method="POST" class="d-flex flex-column justify-content-center pt-3 pb-5 px-5 gap-3">
         {% csrf_token %}
 
-        <table>
+        <table class="d-flex justify-content-center">
 
             {{ mi_form.as_table }}
-            <input type="submit" value="Actualizar">
+            
 
         </table>
 
-
+        <input type="submit" value="Actualizar">
     </form>
 
 {% endblock main %}

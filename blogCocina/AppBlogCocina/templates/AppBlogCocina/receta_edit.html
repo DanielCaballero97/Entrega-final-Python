@@ -1,0 +1,24 @@
+
+{% extends 'AppBlogCocina/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio {% endblock title %}
+
+{% block headerFrase %}
+    <h1 class="fw-bolder">Editar</h1>
+{% endblock headerFrase %}
+
+{% block main %}
+
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+    <input type="submit" value="Enviar">
+
+</form>
+
+{% endblock main%}

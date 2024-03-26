@@ -1,4 +1,4 @@
-{% extends 'AppDeDani/base.html' %}
+{% extends 'AppBlogCocina/base.html' %}
 
 {% load static %}
 
@@ -10,12 +10,12 @@
     <div class="d-flex justify-content-center">
 
         {# Con este div colocamos el título y debajo el formulario usando Bootstrap #}
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column p-5">
 
             {# Mensaje personalizado en la vista de Login con estilos de Bootstrap #}
             <p class="fs-5 fw-bold">{{ msg_register }}</p>
 
-            <form action="" method="POST">
+            <form class="border border-dark p-5" action="" method="POST">
                 {% csrf_token %}
                 
                 {{ form.as_p }}

@@ -1,0 +1,34 @@
+{% extends 'AppBlogCocina/base.html' %}
+
+{% load static %}
+
+{% block title %} Perfil {% endblock title %}
+
+{% block headerFrase %}
+    <h1 class="fw-bolder">Este es tu Perfil</h1>
+{% endblock headerFrase %}
+
+{% block main %}
+<div class="d-flex">
+    <div class="flex-shrink-0">
+        {% if user_avatar %}
+        <img src="{{user_avatar}}" alt="" style="height: 600px;width: 600px;">
+        {% else %}
+        {% endif %}
+    </div>
+    <div class="flex-grow-1 ms-3 gap-3 p-5">
+        <p>Usuario: <i>{{ user.username }}</i></p>
+        <p>Primer Nombre: <i>{{ user.first_name }}</i></p>
+        <p>Segundo Nombre: <i>{{ user.last_name }}</i></p>
+        <p>Email: <i>{{ user.email }}</i></p>
+
+
+        <p class="d-flex gap-3">
+            <a class="text-light bg-secondary rounded p-2" href="{% url 'EditarUsuario' %}">Editar</a>
+            <a class="text-light bg-secondary rounded p-2" href="{% url 'AgregarAvatar' %}">Agregar/Reemplazar Avatar</a>
+
+        </p>
+
+    </div>
+  </div>
+{% endblock main %}

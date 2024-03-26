@@ -1,0 +1,40 @@
+{% extends 'AppBlogCocina/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio {% endblock title %}
+
+{% block headerFrase %}
+    <h1 class="fw-bolder">Su humilde creador</h1>
+    <p class="lead mb-0">ah re que esta re fea la pag we</p>
+{% endblock headerFrase %}
+
+{% block main %}
+<main class="p-5 d-flex flex-column justify-content-center align-items-center">
+    <grid class="nosotrosd-flex d-flex flex-row mb-3">
+      <box class="nosotros-box1 w-50 h-100">
+        <div class="card nosotros-box1-card border-secondary bg-light" >
+          <div class="card-body">
+            <h1 class="card-title">Quien soy yo?</h1>
+            <p class="card-text">un pibe que trata de recuperar el tiempo perdido , con ganas de aprender y mejorar</p>
+          </div>
+        </div>
+      </box>
+      <box class="nosotros-box2 w-50 h-100">
+        <div class="card nosotros-box2-card border-secondary bg-light" >
+          <div class="card-body">
+            <h1 class="card-title">El Dani</h1>
+            <h2 class="card-title">CEO de ventas online</h2>
+          </div>
+        </div>
+      </box>
+    </grid>
+
+    <div class="d-flex flex-column justify-content-center w-50 h-50">
+
+        <img src="{% static 'AppBlogCocina/assets/laburo.jpg' %}" class="card-img rounded-circle d-flex justify-content-center" alt="imagen de dueño de la empresa">
+
+
+    </div>
+  </main>
+{% endblock main%}

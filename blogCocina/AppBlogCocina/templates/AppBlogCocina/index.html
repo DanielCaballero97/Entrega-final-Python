@@ -1,0 +1,43 @@
+{% extends 'AppBlogCocina/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio {% endblock title %}
+
+{% block headerFrase %}
+    <h1 class="fw-bolder">Bienvenidos a mi blog de cocina Profe/Enzo :D</h1>
+    <p class="lead mb-0">este es mi inicio , basicon pero sirve para el proposito we</p>
+{% endblock headerFrase %}
+
+{% block main %}
+<div class="p-5"> 
+
+    <div class="card mb-3">
+        <img src="{% static 'AppBlogCocina/assets/pp.webp' %}" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title text-center">Recetas como esta :D</h5>
+          <p class="card-text text-center">al alcanze de tu mano , te interesa ? hace click en el boton de abajo</p>
+          <a href="{% url 'Lista' %}"  class="btn btn-primary text-center border-light ">Recetas</a>
+        </div>
+      </div>
+
+
+    <div class="card py-3">
+        <div class="card-header">
+        Un dia un sabio dijo
+        </div>
+        <div class="card-body">
+        <blockquote class="blockquote">
+            <p>"las recetas de la Nona son infinitmente superior a cualquier receta de Gordon Ramsey"</p>
+            <footer class="blockquote-footer">Confucio 1253-2024 <cite title="ms-1 Source Title">-- Fuente : de los deseos</cite></footer>
+        </blockquote>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+{% endblock main %}

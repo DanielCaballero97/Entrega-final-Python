@@ -1,0 +1,26 @@
+{% extends 'AppBlogCocina/base.html' %}
+
+{% load static %}
+
+{% block title %} Cargar Imagen para el Post {% endblock title %}
+
+{% block headerFrase %}
+    <h1 class="fw-bolder">Cargar un Imagen</h1>
+{% endblock headerFrase %}
+
+{% block main %}
+
+<body>
+    <h3>Cargar Imagen</h3>
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        {{ mi_form.as_p }}
+
+        <input type="submit" value="Actualizar">
+        
+    </form>
+</body> 
+
+{% endblock main %}

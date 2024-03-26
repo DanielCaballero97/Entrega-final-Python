@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'AppBlogCocina',
-    'users'
+    'users',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'boostrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

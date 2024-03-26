@@ -1,0 +1,23 @@
+{% extends 'AppBlogCocina/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio {% endblock title %}
+
+{% block headerFrase %}
+    <h1 class="fw-bolder">Borrando</h1>
+{% endblock headerFrase %}
+
+{% block main %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <p>¿Estás seguro que deseas borrar la receta ?  "{{ object.nombre }}"?</p>
+    <input type="submit" value="Borrar">
+
+</form>
+
+
+
+{% endblock main%}

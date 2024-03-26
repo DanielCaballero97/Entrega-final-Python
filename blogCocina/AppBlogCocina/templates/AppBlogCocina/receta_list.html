@@ -1,0 +1,113 @@
+{% extends 'AppBlogCocina/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio {% endblock title %}
+
+{% block headerFrase %}
+    <h1 class="fw-bolder">Lista de Recetas</h1>
+    <p class="lead mb-0">prueben la receta que mas les guste :P</p>
+{% endblock headerFrase %}
+
+{% block main %}
+
+        <!-- Page content-->
+        <div class="container">
+            <div class="row">
+                <!-- Blog entries-->
+                <div class="col-lg-8">
+                    <!-- Nested row for non-featured blog posts-->
+                    <div class="row">
+                        {% if request.user == None %}
+
+                            <div class="card">
+                                <div class="card-body">
+                                no hay nada todavia :/
+                                </div>
+                            </div>
+
+
+                        {% else %}
+                            {% for Receta in object_list %}
+                                <div class="col-lg-6">
+
+                                    <!-- Blog post-->
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            
+                                            <h2 class="card-title h4">{{ Receta.nombre }}</h2>
+
+                                            <p class="card-text">{{ Receta.descripcion }}</p>
+                                            <p class="card-text text-secondary">{{ Receta.categoria }}</p>
+                                            <p class="d-flex flex-row mb-3 gap-2">
+                                                <a class="btn btn-primary" href="{% url 'Detail' Receta.id %}">Receta Completa</a>
+                                                {% if request.user.id == Receta.user_id %}
+                                                    <a class="btn btn-primary" href="{% url 'Edit' Receta.id %}">Editar</a>
+                                                    <a class="btn btn-primary" href="{% url 'Delete' Receta.id %}">Borrar</a>
+                                                {% else %}
+                                                    {% if request.user.is_staff %}
+                                                        <a class="btn btn-primary" href="{% url 'Edit' Receta.id %}">Editar</a>
+                                                        <a class="btn btn-primary" href="{% url 'Delete' Receta.id %}">Borrar</a>
+                                                    {%endif %}
+                                                {%endif %}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            {% endfor %}
+                        {%endif %}
+                    </div>
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+
+                    <div class="card mb-4">
+                        <div class="card-header">Muestra tu Receta al mundo :D</div>
+                        <div class="card-body">
+                            <li><a class="fs-2 btn btn-primary"  href="{% url 'New' %}">Postear</a></li>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Search widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Search</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Categories widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Categories</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="#!">Web Design</a></li>
+                                        <li><a href="#!">HTML</a></li>
+                                        <li><a href="#!">Freebies</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="#!">JavaScript</a></li>
+                                        <li><a href="#!">CSS</a></li>
+                                        <li><a href="#!">Tutorials</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+{% endblock main %}

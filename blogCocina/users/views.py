@@ -3,6 +3,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, login
 from users.forms import UserRegisterForm , UserEditForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 def login_request(request):
 
@@ -28,6 +30,7 @@ def login_request(request):
 
 
 
+
 def register(request):
 
     msg_register = ""
@@ -42,6 +45,8 @@ def register(request):
 
     form = UserRegisterForm()     
     return render(request,"users/registro.html" ,  {"form":form, "msg_register": msg_register})
+
+
 
 
 @login_required
@@ -71,8 +76,8 @@ def editar_perfil(request):
     else:
         datos = {
             'email': usuario.email,
-            'first name': usuario.first_name,
-            'last name': usuario.last_name
+            'first_name': usuario.first_name,
+            'last_name': usuario.last_name
 
         }
         miFormulario = UserEditForm(initial=datos)
@@ -85,6 +90,10 @@ def editar_perfil(request):
             "usuario": usuario
         }
     )
+
+
+
+
 
 from django.contrib.auth.decorators import login_required
 from users.forms import AvatarFormulario
@@ -107,10 +116,19 @@ def agregar_avatar(request):
                 avatar.imagen = mi_form.cleaned_data['imagen']
             avatar.save()
 
-            return render(request, "AppBlogCocina/index.html")
+            return render(request, "users/perfil.html")
         
     else:
         mi_form = AvatarFormulario()
     
     context_data = {"mi_form": mi_form}
     return render(request, "users/agregar_avatar.html", context_data)
+
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.detail import DetailView
+
+
+class Perfil(LoginRequiredMixin, DetailView):
+    model = User
+    template_name = "users/perfil.html"

@@ -1,0 +1,28 @@
+{% extends 'AppBlogCocina/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio {% endblock title %}
+
+{% block headerFrase %}
+    <h1 class="fw-bolder">Suerte</h1>
+{% endblock headerFrase %}
+
+{% block main %}
+
+<div class="card p-2" style="">
+    <div class="card-body p-5">
+      <h2 class="card-title">{{ receta.nombre}}</h2>
+      <p class="card-text">{{ receta.pasos_completos}}</p>
+    </div>
+    <ul class="list-group list-group-flush px-4">
+      <li class="list-group-item">{{ receta.categoria}}</li>
+    </ul>
+    <p class="p-3">
+        <a class="text-light bg-secondary rounded p-2" href="{% url 'Lista' %}">Regresar</a>
+    </p>
+  </div>
+
+
+
+{% endblock main%}

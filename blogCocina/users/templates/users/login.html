@@ -1,8 +1,12 @@
-{% extends 'AppDeDani/base.html' %}
+{% extends 'AppBlogCocina/base.html' %}
 
 {% load static %}
 
 {% block title %} Login {% endblock title %}
+
+{% block headerFrase %}
+    <h1 class="fw-bolder">Iniciar Sesion</h1>
+{% endblock headerFrase %}
 
 {% block main %}
 
@@ -10,7 +14,7 @@
     <div class="d-flex justify-content-center">
 
         {# Con este div colocamos el título y debajo el formulario usando Bootstrap #}
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column p-5">
 
             {# Mensaje personalizado en la vista de Login con estilos de Bootstrap #}
             <p class="fs-5 fw-bold">{{ msg_login }}</p>

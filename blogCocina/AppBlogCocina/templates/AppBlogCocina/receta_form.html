@@ -1,0 +1,28 @@
+
+{% extends 'AppBlogCocina/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio {% endblock title %}
+
+{% block headerFrase %}
+    <h1 class="fw-bolder">Creando Recetas</h1>
+{% endblock headerFrase %}
+
+{% block main %}
+
+<div class="row">    
+    <div class="col-12 col-md-6.offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h2> Agregar Receta </h2> 
+        <hr> 
+        <form action="" method="POST" class="d-flex flex-column mb-3">
+            {% csrf_token %}
+    
+            {{ form.as_p }}
+            <input type="submit" value="Enviar">
+    
+        </form>
+
+{% endblock main %}
